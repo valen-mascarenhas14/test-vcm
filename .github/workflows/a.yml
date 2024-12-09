@@ -18,6 +18,5 @@ jobs:
           .\scripts\test.ps1
 
       - name: Echo Environment Variable
-        shell: pwsh
         run: |
-          Write-Host "The value of rg_name is: $Env:rg_name"
+          echo "The value of rg_name is: ${{ env.rg_name }}"
