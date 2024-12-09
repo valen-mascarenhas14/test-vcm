@@ -1,3 +1,4 @@
 Write-Output "Hello, World!"
 
-Write-Host "rg_name=test-123" >> $Env:GITHUB_ENV
+$resourcegroupName = "test-123"
+Write-Output "rg_name=$resourcegroupName" >> $Env:GITHUB_ENV
