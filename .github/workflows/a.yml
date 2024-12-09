@@ -1,20 +1,23 @@
-name: Run PowerShell Script
+name: Echo Environment Variable
 
 on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
-  run-powershell-script:
+  set-and-echo-env:
     runs-on: windows-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run PowerShell Script
+      - name: Set Environment Variable
         shell: pwsh
         run: |
-          Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
           .\scripts\test.ps1
+
+      - name: Echo Environment Variable
+        shell: pwsh
+        run: |
+          Write-Host "The value of rg_name is: $Env:rg_name"
