@@ -15,7 +15,7 @@ jobs:
       - name: Purging the Resources
         if: success()
         run: |
-              if (-not (hostnamectl)) {
+              if (-not (mkdir test)) {
               Write-Host "Failed to purge OpenAI resource."
               }
 
