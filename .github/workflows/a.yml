@@ -12,11 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set Environment Variable
-        shell: pwsh
+      - name: Purging the Resources
+        if: success()
         run: |
-          .\scripts\test.ps1
+              if (-not (hostnamectl)) {
+              Write-Host "Failed to purge OpenAI resource."
+              }
 
-      - name: Echo Environment Variable
-        run: |
-          echo "The value of rg_name is: ${{ env.rg_name }}"
+
+      # - name: Echo Environment Variable
+      #   run: |
+      #     echo "The value of rg_name is: ${{ env.rg_name }}"
