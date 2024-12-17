@@ -22,8 +22,8 @@ jobs:
               
  
               # Check if $a equals "hello"
-              if ($a -eq "hello") {
-                Write-Host "/hi/${aName}"
+              if ($aName -eq "hello") {
+                Write-Host "/hi/$aName"
               }
 
                 $b = "bye"
