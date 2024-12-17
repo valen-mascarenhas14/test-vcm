@@ -18,12 +18,12 @@ jobs:
 
 
               # Declare the variables
-              $a = "hello"
+              $a_name = "hello"
               
-
+ 
               # Check if $a equals "hello"
               if ($a -eq "hello") {
-                Write-Host "hello world"
+                Write-Host "/hi/$a_name"
               }
 
                 $b = "bye"
@@ -33,7 +33,7 @@ jobs:
               
               # Check if $b equals "bye"
               if ($b -eq "bye") {
-                Write-Host "bye world"
+                Write-Host "/hey/$bye"
               }
 
 
