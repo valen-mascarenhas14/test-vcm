@@ -15,8 +15,25 @@ jobs:
       - name: Purging the Resources
         if: success()
         run: |
-              if (-not (mkdir test)) {
+
+
+              # Declare the variables
+              $a = "hello"
+              $b = "bye"
+
+              # Check if $a equals "hello"
+              if ($a -eq "hello") {
+                Write-Host "hello world"
+              }
+
+                Get-Item "nonexistentfile.txt"
+              if (-not $?) {
               Write-Host "Failed to purge OpenAI resource."
+              }
+              
+              # Check if $b equals "bye"
+              if ($b -eq "bye") {
+                Write-Host "bye world"
               }
 
 
