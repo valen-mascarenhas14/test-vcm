@@ -19,14 +19,14 @@ jobs:
 
               # Declare the variables
               $a = "hello"
-              $b = "bye"
+              
 
               # Check if $a equals "hello"
               if ($a -eq "hello") {
                 Write-Host "hello world"
               }
 
-                Get-Item "nonexistentfile.txt"
+                $b = "bye"
               if (-not $?) {
               Write-Host "Failed to purge OpenAI resource."
               }
