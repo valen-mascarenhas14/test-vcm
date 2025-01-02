@@ -1,9 +1,6 @@
-name: Echo Environment Variable
+# name: Echo Environment Variable
 
-on:
-  push:
-    branches:
-      - main
+
 
 # jobs:
 #   set-and-echo-env:
@@ -51,9 +48,8 @@ name: Build Frontend
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
     
 
 jobs:
