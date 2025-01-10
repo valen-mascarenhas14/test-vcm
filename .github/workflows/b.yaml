@@ -1,0 +1,13 @@
+name: Second Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Env variable
+        run: echo ${{ env.ACR_NAME }}

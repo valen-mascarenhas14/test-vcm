@@ -9,5 +9,5 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello World
-        run: echo "New branch created"
+      - name: Set env variable
+        run: echo "ACR_NAME=vcm" >> $GITHUB_ENV
