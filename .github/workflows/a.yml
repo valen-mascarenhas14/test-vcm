@@ -1,13 +1,44 @@
-name: Hello World Workflow
+name: Build and Push Docker Image
 
 on:
   push:
     branches:
       - main
+      - dev
+      - demo
+      - hotfix
+  pull_request:
+    types:
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+    branches:
+      - main
+      - dev
+      - demo
+      - hotfix
+  workflow_dispatch: 
 
 jobs:
-  say-hello:
+  build-and-push:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Set env variable
-        run: echo "ACR_NAME=vcm" >> $GITHUB_ENV
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+
+      - name: Set Docker image tag
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "TAG=latest" >> $GITHUB_ENV
+          elif [[ "${{ github.ref }}" == "refs/heads/dev" ]]; then
+            echo "TAG=dev" >> $GITHUB_ENV
+          elif [[ "${{ github.ref }}" == "refs/heads/demo" ]]; then
+            echo "TAG=demo" >> $GITHUB_ENV
+          elif [[ "${{ github.ref }}" == "refs/heads/hotfix" ]]; then
+            echo "TAG=hotfix" >> $GITHUB_ENV
+          fi
+
+          
