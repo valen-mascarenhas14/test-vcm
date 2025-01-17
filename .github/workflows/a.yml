@@ -32,13 +32,15 @@ jobs:
       - name: Set Docker image tag
         run: |
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "TAG=latest" >> $GITHUB_ENV
+            echo "TAG=latest" 
           elif [[ "${{ github.ref }}" == "refs/heads/dev" ]]; then
-            echo "TAG=dev" >> $GITHUB_ENV
+            echo "TAG=dev" 
           elif [[ "${{ github.ref }}" == "refs/heads/demo" ]]; then
-            echo "TAG=demo" >> $GITHUB_ENV
+            echo "TAG=demo" 
           elif [[ "${{ github.ref }}" == "refs/heads/hotfix" ]]; then
-            echo "TAG=hotfix" >> $GITHUB_ENV
+            echo "TAG=hotfix" 
           fi
+          echo "final one"
+          echo ${{ github.ref }}
 
           
