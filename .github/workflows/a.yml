@@ -40,7 +40,7 @@ jobs:
           elif [[ "${{ github.ref }}" == "refs/heads/hotfix" ]]; then
             echo "TAG=hotfix" 
           fi
-          echo "final one"
+          echo "final vcm test"
           echo ${{ github.ref }}
 
           
