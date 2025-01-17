@@ -31,9 +31,9 @@ jobs:
 
       - name: Set Docker image tag
         run: |
-          if [[ "${{ github.head_ref }}" == "refs/heads/main" ]]; then
+          if [[ "${{ github.head_ref }}" == "main" ]]; then
             echo "TAG=latest" 
-          elif [[ "${{ github.head_ref }}" == "refs/heads/dev" ]]; then
+          elif [[ "${{ github.head_ref }}" == "dev" ]]; then
             echo "TAG=dev" 
           fi
           echo ${{ github.ref }}
