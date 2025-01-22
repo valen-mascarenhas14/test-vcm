@@ -9,5 +9,5 @@ $final1="/name/$resourcegroupName"
 
 Write-Output $final
 
-Write-Output "Hello, World!"
-Write-Output $final1
+#Write-Output "Hello, World!"
+#Write-Output $final1
