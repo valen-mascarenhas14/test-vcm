@@ -1,46 +1,23 @@
-name: Build and Push Docker Image
+name: "pr-title-checker"
 
 on:
-  push:
-    branches:
-      - main
-      - dev
-      - demo
-      - hotfix
-  pull_request:
+  pull_request_target:
     types:
       - opened
-      - ready_for_review
-      - reopened
+      - edited
       - synchronize
     branches:
-      - main
       - dev
-      - demo
-      - hotfix
-  workflow_dispatch: 
+      - main
+
+permissions:
+  pull-requests: read
 
 jobs:
-  build-and-push:
+  validate_pr_title:
     runs-on: ubuntu-latest
-
+    if: ${{ github.event_name != 'merge_group' }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-
-      - name: Set Docker image tag
+      - name: Check PR title
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            echo "TAG=latest" 
-          elif [[ "${{ github.ref }}" == "refs/heads/dev" ]]; then
-            echo "TAG=dev" 
-          elif [[ "${{ github.ref }}" == "refs/heads/demo" ]]; then
-            echo "TAG=demo" 
-          elif [[ "${{ github.ref }}" == "refs/heads/hotfix" ]]; then
-            echo "TAG=hotfix" 
-          fi
-          echo "final vcm test"
-          echo ${{ github.ref }}
-
-          
+          echo "hello valen test"
